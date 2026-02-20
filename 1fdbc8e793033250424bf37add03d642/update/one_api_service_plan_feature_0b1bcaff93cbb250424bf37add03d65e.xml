@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="one_api_service_plan_feature">
+    <one_api_service_plan_feature action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applicability_condition/>
+        <applicability_condition_expression/>
+        <applicability_condition_table/>
+        <applicability_script><![CDATA[(function(featureInput, previousFeatureOutputs) {  
+	/* customize condition logic here, return true or false */  
+	return true;
+  })(featureInput, previousFeatureOutputs);]]></applicability_script>
+        <applicability_type>script</applicability_type>
+        <delay_output_processing>false</delay_output_processing>
+        <depends_on/>
+        <depends_on_list/>
+        <error_policy>continue_service_plan_execution</error_policy>
+        <feature display_value="12e2ba33c09f4b258e40e8f8e9e9c464">4f1bcaff93cbb250424bf37add03d657</feature>
+        <return_request>false</return_request>
+        <service_plan display_value="___$y$t3m_bu1163r___-12e2ba33c09f4b258e40e8f8e9e9c464-default">871bcaff93cbb250424bf37add03d65c</service_plan>
+        <sys_class_name>one_api_service_plan_feature</sys_class_name>
+        <sys_created_by>rosa.montes</sys_created_by>
+        <sys_created_on>2026-02-20 21:54:31</sys_created_on>
+        <sys_id>0b1bcaff93cbb250424bf37add03d65e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>___$y$t3m_bu1163r___-12e2ba33c09f4b258e40e8f8e9e9c464-default: 12e2ba33c09f4b258e40e8f8e9e9c464</sys_name>
+        <sys_package display_value="Domino's Pizza Ordering" source="x_snc_dominos_pizz">1fdbc8e793033250424bf37add03d642</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Domino's Pizza Ordering">1fdbc8e793033250424bf37add03d642</sys_scope>
+        <sys_update_name>one_api_service_plan_feature_0b1bcaff93cbb250424bf37add03d65e</sys_update_name>
+        <sys_updated_by>rosa.montes</sys_updated_by>
+        <sys_updated_on>2026-02-20 21:54:31</sys_updated_on>
+        <timeout_policy>continue_service_plan_execution</timeout_policy>
+        <timeout_sec>60</timeout_sec>
+    </one_api_service_plan_feature>
+</record_update>

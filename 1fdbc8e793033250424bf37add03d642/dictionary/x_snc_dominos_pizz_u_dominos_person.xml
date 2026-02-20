@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="12a4d86b93433250424bf37add03d6ab" label="Domino's Person" max_length="40" name="x_snc_dominos_pizz_u_dominos_person" type="collection">
+        <element attributes="edge_encryption_enabled=true" display="true" label="Name" mandatory="true" max_length="100" name="u_name" type="string"/>
+        <element attributes="encode_utf8=false" label="User" max_length="32" name="u_user" reference="sys_user" type="reference"/>
+        <element attributes="encode_utf8=false" label="Order" mandatory="true" max_length="32" name="u_order" reference="x_snc_dominos_pizz_u_dominos_order" reference_cascade_rule="delete" type="reference"/>
+        <index name="index">
+            <element name="u_order"/>
+        </index>
+        <index name="index2">
+            <element name="u_user"/>
+        </index>
+    </element>
+</database>

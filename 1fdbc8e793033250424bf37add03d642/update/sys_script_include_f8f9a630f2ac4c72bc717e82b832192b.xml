@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_snc_dominos_pizz.DominosMenuAPI</api_name>
+        <caller_access>1</caller_access>
+        <client_callable>true</client_callable>
+        <description>Server-side API for retrieving hardcoded Domino's pizza menu with items, sizes, and pricing</description>
+        <mobile_callable>true</mobile_callable>
+        <name>DominosMenuAPI</name>
+        <sandbox_callable>true</sandbox_callable>
+        <script><![CDATA[var DominosMenuAPI = Class.create();
+
+DominosMenuAPI.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+
+  /**
+   * Returns the complete Domino's menu with items, sizes, and codes
+   */
+  getMenu: function() {
+    var menu = {
+      pizzas: [
+        {
+          item_code: "MAR",
+          item_name: "Margherita",
+          description: "Fresh mozzarella, tomato sauce, and basil",
+          sizes: [
+            { size: "S", name: "Small", price: 11.90 },
+            { size: "M", name: "Medium", price: 14.50 },
+            { size: "L", name: "Large", price: 17.50 }
+          ]
+        },
+        {
+          item_code: "PEP",
+          item_name: "Pepperoni",
+          description: "Classic pepperoni with mozzarella cheese",
+          sizes: [
+            { size: "S", name: "Small", price: 12.90 },
+            { size: "M", name: "Medium", price: 15.50 },
+            { size: "L", name: "Large", price: 18.50 }
+          ]
+        },
+        {
+          item_code: "HAW",
+          item_name: "Hawaiian",
+          description: "Ham and pineapple with mozzarella cheese",
+          sizes: [
+            { size: "S", name: "Small", price: 13.90 },
+            { size: "M", name: "Medium", price: 16.50 },
+            { size: "L", name: "Large", price: 19.50 }
+          ]
+        },
+        {
+          item_code: "VEG",
+          item_name: "Veggie",
+          description: "Bell peppers, mushrooms, onions, olives, and tomatoes",
+          sizes: [
+            { size: "S", name: "Small", price: 12.90 },
+            { size: "M", name: "Medium", price: 15.50 },
+            { size: "L", name: "Large", price: 18.50 }
+          ]
+        }
+      ]
+    };
+    
+    return JSON.stringify(menu);
+  },
+
+  /**
+   * Returns menu item by item code
+   */
+  getMenuItem: function() {
+    var itemCode = this.getParameter('sysparm_item_code');
+    var menu = JSON.parse(this.getMenu());
+    
+    for (var i = 0; i < menu.pizzas.length; i++) {
+      if (menu.pizzas[i].item_code === itemCode) {
+        return JSON.stringify(menu.pizzas[i]);
+      }
+    }
+    
+    return JSON.stringify({ error: 'Item not found' });
+  },
+
+  /**
+   * Returns all available sizes for a specific item
+   */
+  getItemSizes: function() {
+    var itemCode = this.getParameter('sysparm_item_code');
+    var menuItem = JSON.parse(this.getMenuItem());
+    
+    if (menuItem.error) {
+      return JSON.stringify(menuItem);
+    }
+    
+    return JSON.stringify(menuItem.sizes);
+  },
+
+  /**
+   * Returns Domino's store locations in Switzerland
+   */
+  getSwissStoreLocations: function() {
+    var stores = {
+      locations: [
+        {
+          store_id: "CH_ZUR_001",
+          name: "Zurich Central",
+          address: "Bahnhofstrasse 45, 8001 Zurich",
+          phone: "+41 44 123 45 67",
+          city: "Zurich",
+          postal_code: "8001"
+        },
+        {
+          store_id: "CH_ZUR_002", 
+          name: "Zurich Oerlikon",
+          address: "Schaffhauserstrasse 150, 8057 Zurich",
+          phone: "+41 44 234 56 78",
+          city: "Zurich",
+          postal_code: "8057"
+        },
+        {
+          store_id: "CH_GEN_001",
+          name: "Geneva Centre",
+          address: "Rue du Rhône 85, 1204 Geneva",
+          phone: "+41 22 345 67 89",
+          city: "Geneva", 
+          postal_code: "1204"
+        },
+        {
+          store_id: "CH_BAS_001",
+          name: "Basel Marktplatz",
+          address: "Marktplatz 12, 4051 Basel",
+          phone: "+41 61 456 78 90",
+          city: "Basel",
+          postal_code: "4051"
+        },
+        {
+          store_id: "CH_BER_001",
+          name: "Bern Hauptbahnhof",
+          address: "Bahnhofplatz 10A, 3011 Bern",
+          phone: "+41 31 567 89 01",
+          city: "Bern",
+          postal_code: "3011"
+        },
+        {
+          store_id: "CH_LAU_001",
+          name: "Lausanne Flon",
+          address: "Place de l'Europe 9, 1003 Lausanne",
+          phone: "+41 21 678 90 12",
+          city: "Lausanne",
+          postal_code: "1003"
+        },
+        {
+          store_id: "CH_LUC_001",
+          name: "Lucerne Old Town", 
+          address: "Weggisgasse 3, 6004 Lucerne",
+          phone: "+41 41 789 01 23",
+          city: "Lucerne",
+          postal_code: "6004"
+        },
+        {
+          store_id: "CH_STG_001",
+          name: "St. Gallen Center",
+          address: "Multergasse 25, 9000 St. Gallen",
+          phone: "+41 71 890 12 34",
+          city: "St. Gallen",
+          postal_code: "9000"
+        }
+      ]
+    };
+    
+    return JSON.stringify(stores);
+  },
+
+  type: 'DominosMenuAPI'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>soren.maucher</sys_created_by>
+        <sys_created_on>2026-02-19 18:38:34</sys_created_on>
+        <sys_id>f8f9a630f2ac4c72bc717e82b832192b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>DominosMenuAPI</sys_name>
+        <sys_package display_value="Domino's Pizza Ordering" source="x_snc_dominos_pizz">1fdbc8e793033250424bf37add03d642</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Domino's Pizza Ordering">1fdbc8e793033250424bf37add03d642</sys_scope>
+        <sys_update_name>sys_script_include_f8f9a630f2ac4c72bc717e82b832192b</sys_update_name>
+        <sys_updated_by>soren.maucher</sys_updated_by>
+        <sys_updated_on>2026-02-19 18:38:34</sys_updated_on>
+    </sys_script_include>
+</record_update>

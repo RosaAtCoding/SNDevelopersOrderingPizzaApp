@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="8ea4d86b93433250424bf37add03d613" label="Domino's Order" max_length="40" name="x_snc_dominos_pizz_u_dominos_order" type="collection">
+        <element attributes="edge_encryption_enabled=true" label="Order For Date/Time" mandatory="true" max_length="40" name="u_order_for_date" type="glide_date_time"/>
+        <element attributes="encode_utf8=false" label="Requested For" mandatory="true" max_length="32" name="u_requested_for" reference="sys_user" type="reference"/>
+        <element default="0" label="Total Pizzas" max_length="40" name="u_total_pizzas" read_only="true" type="integer"/>
+        <element attributes="edge_encryption_enabled=true" label="Store Location" mandatory="true" max_length="100" name="u_store" type="string"/>
+        <element choice="1" default="draft" label="Status" max_length="40" name="u_status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Submitted" sequence="1" value="submitted"/>
+                <element inactive_on_update="false" label="Fulfilled" sequence="2" value="fulfilled"/>
+                <element inactive_on_update="false" label="Draft" sequence="0" value="draft"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" display="true" label="Order Number" max_length="40" name="u_number" read_only="true" type="string"/>
+        <index name="index">
+            <element name="u_requested_for"/>
+        </index>
+    </element>
+</database>

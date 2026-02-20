@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="one_api_feature">
+    <one_api_feature action="INSERT_OR_UPDATE">
+        <input_processor display_value="OneExtendGenericCapabilityRequestProcessor">a7eb538353111110c271ddeeff7b12a8</input_processor>
+        <name>12e2ba33c09f4b258e40e8f8e9e9c464</name>
+        <output_processor display_value="OneExtendCapabilityResponseProcessor">3a90ff027f50121032d293f10d866518</output_processor>
+        <short_description>Auto Generated </short_description>
+        <sys_class_name>one_api_feature</sys_class_name>
+        <sys_created_by>rosa.montes</sys_created_by>
+        <sys_created_on>2026-02-20 21:54:30</sys_created_on>
+        <sys_id>4f1bcaff93cbb250424bf37add03d657</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>12e2ba33c09f4b258e40e8f8e9e9c464</sys_name>
+        <sys_package display_value="Domino's Pizza Ordering" source="x_snc_dominos_pizz">1fdbc8e793033250424bf37add03d642</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Domino's Pizza Ordering">1fdbc8e793033250424bf37add03d642</sys_scope>
+        <sys_update_name>one_api_feature_4f1bcaff93cbb250424bf37add03d657</sys_update_name>
+        <sys_updated_by>rosa.montes</sys_updated_by>
+        <sys_updated_on>2026-02-20 21:54:30</sys_updated_on>
+    </one_api_feature>
+</record_update>

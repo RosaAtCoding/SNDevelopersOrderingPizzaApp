@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="1aa4d86b93433250424bf37add03d66b" label="Domino's Line Item" max_length="40" name="x_snc_dominos_pizz_u_dominos_line" type="collection">
+        <element attributes="edge_encryption_enabled=true" display="true" label="Item Name" mandatory="true" max_length="100" name="u_item_name" type="string"/>
+        <element choice="3" default="M" label="Size" mandatory="true" max_length="40" name="u_size" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Large" sequence="2" value="L"/>
+                <element inactive_on_update="false" label="Small" sequence="0" value="S"/>
+                <element inactive_on_update="false" label="Medium" sequence="1" value="M"/>
+            </choice>
+        </element>
+        <element default="1" label="Quantity" mandatory="true" max_length="40" name="u_quantity" type="integer"/>
+        <element attributes="encode_utf8=false" label="Person" mandatory="true" max_length="32" name="u_person" reference="x_snc_dominos_pizz_u_dominos_person" reference_cascade_rule="delete" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Item Code" mandatory="true" max_length="20" name="u_item_code" type="string"/>
+        <element attributes="encode_utf8=false" label="Order" mandatory="true" max_length="32" name="u_order" reference="x_snc_dominos_pizz_u_dominos_order" reference_cascade_rule="delete" type="reference"/>
+        <index name="index">
+            <element name="u_order"/>
+        </index>
+        <index name="index2">
+            <element name="u_person"/>
+        </index>
+    </element>
+</database>
